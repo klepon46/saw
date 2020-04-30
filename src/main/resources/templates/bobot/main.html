@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Bobot</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div th:replace="header :: header"></div>
+<br/>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Data Nilai Bobot
+        </div>
+        <div class="card-body">
+            <input type="button" class="btn btn-primary" value="Edit Nama Kriteria"
+                   data-toggle="modal" data-target="#exampleModal"/>
+            <input type="button" class="btn btn-success float-right" value="Refresh"/>
+
+            <h5 class="card-title text-center">Nilai Bobot Pada :</h5>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md">
+                        <label>Kehadiran</label> <br/>
+                        <input class="form-control">
+                    </div>
+                    <div class="col-md">
+                        <label>Kerja sama</label> <br/>
+                        <input class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label>Kesopanan</label> <br/>
+                        <input class="form-control">
+                    </div>
+                    <div class="col-md">
+                        <label>Ketelitian</label> <br/>
+                        <input class="form-control">
+                    </div>
+                </div>
+                <br/>
+                <div class="text-center">
+                    <input type="button" class="btn btn-danger" value="Ubah ke default">
+                    <input type="button" class="btn btn-success" value="Proses Edit">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

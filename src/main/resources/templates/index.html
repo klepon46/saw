@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Saw</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+
+</head>
+<!--<h1 th:text="${str}"></h1>-->
+<!--<h1>[[${str}]]</h1>-->
+
+<div th:insert="header :: header"></div>
+<form action="#" th:object="${user}" th:action="@{/save}" method="post">
+    <table>
+        <tr>
+            <td>
+                Username :
+            </td>
+            <td>
+                email :
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" th:field="*{userName}"/>
+            </td>
+            <td>
+                <input type="text" th:field="*{email}"/>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Submit" class="btn btn-success">
+</form>
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>
