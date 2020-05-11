@@ -16,6 +16,14 @@ import javax.persistence.*;
 @Table(name = "tbl_nilai")
 public class Nilai {
 
+    public Nilai(int idKaryawan, float kriteria1, float kriteria2, float kriteria3, float kriteria4) {
+        this.idKaryawan = idKaryawan;
+        this.kriteria1 = kriteria1;
+        this.kriteria2 = kriteria2;
+        this.kriteria3 = kriteria3;
+        this.kriteria4 = kriteria4;
+    }
+
     @Id
     @Column(name = "id")
     private int id;
