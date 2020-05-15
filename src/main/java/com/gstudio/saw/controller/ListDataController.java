@@ -30,10 +30,7 @@ public class ListDataController {
         return "redirect:/list-data/menu";
     }
 
-    @GetMapping("/editData")
-    public int editData(int nik){
-        return 0;
-    }
+
 
 
 }

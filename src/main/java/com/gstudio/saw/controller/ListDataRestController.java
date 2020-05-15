@@ -10,9 +10,7 @@ import com.gstudio.saw.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -50,9 +48,13 @@ public class ListDataRestController {
 
     @GetMapping("/getDataByNik")
     public ResponseEntity<Data> getDataByNik(int nik){
-
         Optional<Data> data = dataRepository.findById(nik);
-
         return new ResponseEntity<>(data.get(), HttpStatus.OK);
+    }
+
+    @PostMapping("/deleteData")
+    public ResponseEntity<Integer> deleteData(int nik){
+        dataRepository.deleteById(nik);
+        return new ResponseEntity<>(nik, HttpStatus.OK);
     }
 }
