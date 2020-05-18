@@ -1,8 +1,6 @@
 package com.gstudio.saw.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,10 +11,15 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @NoArgsConstructor
+@EqualsAndHashCode(of = "id")
+@ToString(of = "id")
 @Table(name = "tbl_bobot")
 public class Bobot {
 
     @Id
+    @Column
+    private int id;
+
     @Column(name = "bobot_1")
     private float bobot1;
 

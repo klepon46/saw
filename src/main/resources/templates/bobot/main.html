@@ -21,36 +21,36 @@
         <div class="card-body">
             <input type="button" class="btn btn-primary" value="Edit Nama Kriteria"
                    data-toggle="modal" data-target="#exampleModal"/>
-            <input type="button" class="btn btn-success float-right" value="Refresh"/>
 
             <h5 class="card-title text-center">Nilai Bobot Pada :</h5>
             <div class="container">
-                <div class="row">
-                    <div class="col-md">
-                        <label>Kehadiran</label> <br/>
-                        <input class="form-control">
+                <form th:action="@{/bobot/save}" method="post">
+                    <div class="row">
+                        <div class="col-md">
+                            <label id="kriteria1"></label> <br/>
+                            <input name="bobot1" class="form-control" th:value="${bobot.bobot1}">
+                        </div>
+                        <div class="col-md">
+                            <label id="kriteria2"></label> <br/>
+                            <input name="bobot2" class="form-control" th:value="${bobot.bobot2}">
+                        </div>
                     </div>
-                    <div class="col-md">
-                        <label>Kerja sama</label> <br/>
-                        <input class="form-control">
+                    <div class="row">
+                        <div class="col-md">
+                            <label id="kriteria3"></label> <br/>
+                            <input name="bobot3" class="form-control" th:value="${bobot.bobot3}">
+                        </div>
+                        <div class="col-md">
+                            <label id="kriteria4"></label> <br/>
+                            <input name="bobot4" class="form-control" th:value="${bobot.bobot4}">
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md">
-                        <label>Kesopanan</label> <br/>
-                        <input class="form-control">
+                    <br/>
+                    <div class="text-center">
+                        <input type="button" class="btn btn-danger" value="Ubah ke default">
+                        <input type="submit" class="btn btn-success" value="Proses Edit">
                     </div>
-                    <div class="col-md">
-                        <label>Ketelitian</label> <br/>
-                        <input class="form-control">
-                    </div>
-                </div>
-                <br/>
-                <div class="text-center">
-                    <input type="button" class="btn btn-danger" value="Ubah ke default">
-                    <input type="button" class="btn btn-success" value="Proses Edit">
-                </div>
-
+                </form>
             </div>
 
         </div>
@@ -62,27 +62,53 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+    <form th:action="@{/bobot/saveKriteria}" method="post">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Nama Kriteria</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md">
+                                <input name="kriteria1" class="form-control" placeholder="Kriteria 1">
+                            </div>
+                            <div class="col-md">
+                                <input name="kriteria2" class="form-control" placeholder="Kriteria 2">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-md">
+                                <input name="kriteria3" class="form-control" placeholder="Kriteria 3">
+                            </div>
+                            <div class="col-md">
+                                <input name="kriteria4" class="form-control" placeholder="Kriteria 4">
+                            </div>
+                        </div>
+                        <br/>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+
             </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <script th:src="@{/js/jquery.min.js}"></script>
 <script th:src="@{/js/popper.min.js}"></script>
 <script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/bobot.js}"></script>
 </body>
 </html>
