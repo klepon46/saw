@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -52,9 +53,40 @@ public class ListDataRestController {
         return new ResponseEntity<>(data.get(), HttpStatus.OK);
     }
 
+    @GetMapping("/getDataByFilter")
+    public ResponseEntity<List<Data>> getDataByFilter(int kuartal, int year){
+        Optional<List<Data>> datas = Optional.empty();
+        if(kuartal != 0 && year != 0){
+            datas = dataRepository.findByKuartalAndYear(kuartal,year);
+        }else if(kuartal == 0 && year != 0){
+            datas = dataRepository.findByYear(year);
+        }else if(kuartal != 0 && year==0){
+            datas = dataRepository.findByKuartal(kuartal);
+        }else{
+            datas = Optional.of((List<Data>)dataRepository.findAll());
+        }
+
+        List<Data> lists = new ArrayList<>();
+        if(datas.isPresent()){
+            lists = datas.get();
+        }
+
+        return new ResponseEntity<>(lists, HttpStatus.OK);
+    }
+
     @PostMapping("/deleteData")
     public ResponseEntity<Integer> deleteData(int nik){
         dataRepository.deleteById(nik);
         return new ResponseEntity<>(nik, HttpStatus.OK);
+    }
+
+    @GetMapping("/cekNik")
+    public ResponseEntity<String> cekNik(int nik){
+        Optional<Data> data = dataRepository.findById(nik);
+        if(data.isEmpty()){
+            return new ResponseEntity<>("kosong",HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>("ada",HttpStatus.OK);
+        }
     }
 }

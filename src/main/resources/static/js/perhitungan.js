@@ -24,27 +24,38 @@ $(function() {
     var datas = [];
     $('#normalisasi').click(function(){
         $("#grid-basic").bootgrid('clear');
+        var year = $('#YearFullid').children("option:selected").val();
+        var period = $('#period').children("option:selected").val();
+
         $.ajax({
-                url: "/perhitungan/hitung",
+                url: "/perhitungan/hitungFilter?kuartal="+period+"&year="+year,
                 type: 'GET',
                 success: function (data) {
                     $("#grid-basic").bootgrid('append', data);
                     datas = data;
 
-                    console.log(datas);
+
                 }
         });
     });
 
     $('#peringkat').click(function(){
-    $("#grid-peringkat").bootgrid('clear');
-        $.ajax({
-            url: "/perhitungan/peringkat",
-            type: 'GET',
-            success: function (data) {
-                $("#grid-peringkat").bootgrid('append', data);
+            $("#grid-peringkat").bootgrid('clear');
+            if(datas.length == 0){
+                alert("Data belum di normalisasi");
+                return;
             }
-        });
+
+            var year = $('#YearFullid').children("option:selected").val();
+            var period = $('#period').children("option:selected").val();
+
+            $.ajax({
+                url: "/perhitungan/peringkatFilter?kuartal="+period+"&year="+year,
+                type: 'GET',
+                success: function (data) {
+                    $("#grid-peringkat").bootgrid('append', data);
+                }
+            });
     });
 
 

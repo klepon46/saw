@@ -21,14 +21,24 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-md-4">
+        <div class="col-md-2">
+            <select name="kuartal" class="form-control" id="period">
+                <option value="0">All</option>
+                <option value="1">Periode 1</option>
+                <option value="2">Periode 2</option>
+                <option value="3">Periode 3</option>
+                <option value="4">Periode 4</option>
+            </select>
+        </div>
+        <div class="col-md-2">
             <select class="form-control" id="YearFullid">
+                <option value="0">All</option>
                 <option value="2015">2015</option>
                 <option value="2016">2016</option>
                 <option value="2017">2017</option>
                 <option value="2018">2018</option>
                 <option value="2019">2019</option>
-                <option value="2020" selected>2020</option>
+                <option value="2020">2020</option>
                 <option value="2021">2021</option>
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
@@ -37,8 +47,12 @@
             </select>
         </div>
 
-        <div class="col-md-8">
-            <input type="button" class="btn btn-primary" value="Tambah Data"
+        <div class="col-md-2">
+            <input type="button" class="btn btn-primary" value="Filter" id="filter"/>
+        </div>
+
+        <div class="col-md-6">
+            <input type="button" class="btn btn-primary float-right " value="Tambah Data"
                    data-toggle="modal" data-target="#modalTambahData"/>
         </div>
 
@@ -75,11 +89,14 @@
                 </div>
                 <div class="modal-body">
 
-                    <select class="form-control" id="periode">
-                        <option></option>
+                    <select name="kuartal" class="form-control" id="periode">
+                        <option value="1">Periode 1</option>
+                        <option value="2">Periode 2</option>
+                        <option value="3">Periode 3</option>
+                        <option value="4">Periode 4</option>
                     </select>
-
-                    <select class="form-control" id="year">
+                    <br/>
+                    <select class="form-control" name="year" id="year">
                         <option value="2015">2015</option>
                         <option value="2016">2016</option>
                         <option value="2017">2017</option>
@@ -92,6 +109,8 @@
                         <option value="2024">2024</option>
                         <option value="2025">2025</option>
                     </select>
+
+                    <br/>
 
                     <input type="text" id="txtNik" class="form-control" name="nik" placeholder="Masukkan Nik">
                     <br/>

@@ -71,4 +71,41 @@ $(function() {
         }
     });
 
+
+    $('#filter').click(function() {
+
+
+          var year = $('#YearFullid').children("option:selected").val();
+          var period = $('#period').children("option:selected").val();
+
+          var urlFilter = "/ListData/getDataByFilter?kuartal=" +period+"&year="+year;
+
+          $.ajax({
+               url: urlFilter,
+               type: 'GET',
+                success: function (data) {
+                    $("#grid-basic").bootgrid('clear', data);
+                    $("#grid-basic").bootgrid('append', data);
+                }
+          });
+
+    });
+
+    $('#txtNik').focusout(function() {
+        console.log($(this).val());
+        var val = $(this).val();
+
+        $.ajax({
+            url: '/ListData/cekNik?nik='+val,
+            type: 'GET',
+            success: function (data) {
+                if(data == 'ada'){
+                    alert('Nik sudah terdaftar');
+                    $('#txtNik').focus();
+                }
+            }
+        });
+
+    });
+
 });

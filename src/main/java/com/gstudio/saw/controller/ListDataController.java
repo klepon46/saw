@@ -30,7 +30,4 @@ public class ListDataController {
         return "redirect:/list-data/menu";
     }
 
-
-
-
 }

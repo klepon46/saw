@@ -23,19 +23,21 @@ public class Data {
     private String nama;
 
     @Column
-    private float kriteria1;
+    private Float kriteria1;
 
     @Column
-    private float kriteria2;
+    private Float kriteria2;
 
     @Column
-    private float kriteria3;
+    private Float kriteria3;
 
     @Column
-    private float kriteria4;
+    private Float kriteria4;
 
     @Column
-    @Temporal(TemporalType.DATE)
-    private Date periode;
+    private Integer kuartal;
+
+    @Column
+    private Integer year;
 
 }
