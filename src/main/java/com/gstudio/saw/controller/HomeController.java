@@ -12,9 +12,10 @@ public class HomeController {
 
     @RequestMapping("/")
     public String index(Model model) {
-        model.addAttribute("user", new User());
-        model.addAttribute("str", "From Controller");
-        return "index";
+//        model.addAttribute("user", new User());
+//        model.addAttribute("str", "From Controller");
+//        return "index";
+        return "welcome";
     }
 
     @GetMapping("/header")
