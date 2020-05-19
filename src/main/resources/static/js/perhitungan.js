@@ -1,7 +1,19 @@
 $(function() {
-    $("#grid-basic").bootgrid({
-        ajax: false,
-        templates: { search: "", actions: "", pagination: "", paginationItem: "", footer: "" }
+
+    $.ajax({
+         url: "/bobot/getKriteria",
+         type: 'GET',
+         success: function (data) {
+                $('#kriteria1').text(data.kriteria1);
+                $('#kriteria2').text(data.kriteria2);
+                $('#kriteria3').text(data.kriteria3);
+                $('#kriteria4').text(data.kriteria4);
+
+                $("#grid-basic").bootgrid({
+                        ajax: false,
+                        templates: { search: "", actions: "", pagination: "", paginationItem: "", footer: "" }
+                });
+         }
     });
 
     $("#grid-peringkat").bootgrid({

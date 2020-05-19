@@ -1,22 +1,9 @@
 $(function() {
 
-
-
-$.ajax({
-    url: "/ListData/getAllPerson",
-    type: 'GET',
-    success: function (data) {
-        console.log('ayam', data);
-    }
-});
-
-
-
     $.ajax({
         url: "/bobot/getKriteria",
         type: 'GET',
         success: function (data) {
-            console.log($('#kriteria1'));
             $('#kriteria1').text(data.kriteria1);
             $('#kriteria2').text(data.kriteria2);
             $('#kriteria3').text(data.kriteria3);
