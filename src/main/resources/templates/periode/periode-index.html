@@ -21,44 +21,48 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-md-12">
-            <div class="row">
-                <select name="kuartal" class="form-control" id="period" style="width:20%">
-                    <option value="1">Periode 1</option>
-                    <option value="2">Periode 2</option>
-                    <option value="3">Periode 3</option>
-                    <option value="4">Periode 4</option>
-                </select>
-                &nbsp;
-                <select class="form-control" id="YearFullid" style="width:20%">
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020" selected>2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                </select>
-                &nbsp;
-                <input type="button" id="generate" class="btn btn-primary" value="Generate"/>
-            </div>
+        <form th:action="@{/periode/report}" method="get">
+            <div class="col-md-12">
+                <div class="row">
+                    <select name="kuartal" class="form-control" id="period" style="width:20%">
+                        <option value="1">Periode 1</option>
+                        <option value="2">Periode 2</option>
+                        <option value="3">Periode 3</option>
+                        <option value="4">Periode 4</option>
+                    </select>
+                    &nbsp;
+                    <select class="form-control" name="year" id="YearFullid" style="width:20%">
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020" selected>2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                    </select>
+                    &nbsp;
+                    <input type="button" id="generate" class="btn btn-primary" value="Generate"/>
+                </div>
 
-            <table id="grid-basic" class="table table-bordered table-hover table-striped">
-                <thead>
-                <tr>
-                    <th data-column-id="peringkat">Peringkat</th>
-                    <th data-column-id="nama">Nama</th>
-                    <th data-column-id="total">Nilai</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+                <table id="grid-basic" class="table table-bordered table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th data-column-id="peringkat">Peringkat</th>
+                        <th data-column-id="nama">Nama</th>
+                        <th data-column-id="total">Nilai</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+                <input type="submit" id="report" class="btn btn-info float-right" value="Create Report"/>
+            </div>
+        </form>
     </div>
 
 

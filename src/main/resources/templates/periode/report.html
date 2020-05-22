@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Report</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-grid.min.css}">
+    <link rel="stylesheet" th:href="@{/css/jquery.bootgrid.min.css}">
+    <link rel="stylesheet" th:href="@{/css/all.css}">
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <p id="kuartal" th:text="${param.kuartal}" hidden></p>
+            <p id="year" th:text="${param.year}" hidden></p>
+            <table id="grid-basic" class="table table-bordered ">
+                <thead>
+                <tr>
+                    <th data-column-id="peringkat">Peringkat</th>
+                    <th data-column-id="nama">Nama</th>
+                    <th data-column-id="total">Nilai</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.bootgrid.min.js}"></script>
+<script th:src="@{/js/periodeReport.js}"></script>
+</body>
+</html>
