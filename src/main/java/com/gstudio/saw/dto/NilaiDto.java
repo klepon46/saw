@@ -23,6 +23,7 @@ public class NilaiDto {
     private float kriteria2;
     private float kriteria3;
     private float kriteria4;
+    private int peringkat;
     private float total;
 
 }

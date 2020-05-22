@@ -76,6 +76,11 @@ public class PerhitunganController {
             nilais.add(nilai);
         });
         nilais.sort(Comparator.comparing(NilaiDto::getTotal).reversed());
+
+        int x = 1;
+        for(NilaiDto item : nilais){
+            item.setPeringkat(x++);
+        }
         return nilais;
     }
 

@@ -21,7 +21,7 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="row">
                 <select name="kuartal" class="form-control" id="period" style="width:20%">
                     <option value="1">Periode 1</option>
@@ -44,28 +44,13 @@
                     <option value="2025">2025</option>
                 </select>
                 &nbsp;
-                <input type="button" id="normalisasi" class="btn btn-primary" value="Lakukan Normalisasi"/>
+                <input type="button" id="generate" class="btn btn-primary" value="Generate"/>
             </div>
 
             <table id="grid-basic" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
-                    <th data-column-id="nama">Nama</th>
-                    <th data-column-id="kriteria1" id="kriteria1">Kriteria 1</th>
-                    <th data-column-id="kriteria2" id="kriteria2">Kriteria 2</th>
-                    <th data-column-id="kriteria3" id="kriteria3">Kriteria 3</th>
-                    <th data-column-id="kriteria4" id="kriteria4">Kriteria 4</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-4">
-            <input type="button" id="peringkat" class="btn btn-primary" value="Tentukan peringkat"/>
-            <table id="grid-peringkat" class="table table-bordered table-hover table-striped">
-                <thead>
-                <tr>
+                    <th data-column-id="peringkat">Peringkat</th>
                     <th data-column-id="nama">Nama</th>
                     <th data-column-id="total">Nilai</th>
                 </tr>
@@ -73,8 +58,6 @@
                 <tbody>
                 </tbody>
             </table>
-
-
         </div>
     </div>
 
@@ -85,6 +68,6 @@
 <script th:src="@{/js/popper.min.js}"></script>
 <script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/jquery.bootgrid.min.js}"></script>
-<script th:src="@{/js/perhitungan.js}"></script>
+<script th:src="@{/js/periode.js}"></script>
 </body>
 </html>
