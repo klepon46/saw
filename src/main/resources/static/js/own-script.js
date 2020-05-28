@@ -9,6 +9,11 @@ $(function() {
             $('#kriteria3').text(data.kriteria3);
             $('#kriteria4').text(data.kriteria4);
 
+            $('#txtKrit1').attr("placeholder","Masukkan Nilai " + data.kriteria1);
+            $('#txtKrit2').attr("placeholder","Masukkan Nilai " + data.kriteria2);
+            $('#txtKrit3').attr("placeholder","Masukkan Nilai " + data.kriteria3);
+            $('#txtKrit4').attr("placeholder","Masukkan Nilai " + data.kriteria4);
+
             $("#grid-basic").bootgrid({
                 ajax: false,
                 templates : {},
