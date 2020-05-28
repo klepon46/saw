@@ -19,6 +19,7 @@
 <br/>
 
 <div class="container">
+    <label id="status" th:text="${status}" hidden></label>
     <div class="row">
 
         <div class="col-md-2">
@@ -78,7 +79,7 @@
 <!-- Modal -->
 <div class="modal fade" id="modalTambahData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-    <form action="#" th:action="@{/list-data/addData}" method="post">
+    <form action="#" th:action="@{/list-data/addData}" th:object="${data}" method="post">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -89,14 +90,14 @@
                 </div>
                 <div class="modal-body">
 
-                    <select name="kuartal" class="form-control" id="periode">
+                    <select th:field="*{kuartal}" class="form-control" id="periode">
                         <option value="1">Periode 1</option>
                         <option value="2">Periode 2</option>
                         <option value="3">Periode 3</option>
                         <option value="4">Periode 4</option>
                     </select>
                     <br/>
-                    <select class="form-control" name="year" id="year">
+                    <select class="form-control" th:field="*{year}" id="year">
                         <option value="2015">2015</option>
                         <option value="2016">2016</option>
                         <option value="2017">2017</option>
@@ -112,21 +113,23 @@
 
                     <br/>
 
-                    <input type="text" id="txtNik" class="form-control" name="nik" placeholder="Masukkan Nik">
+                    <input type="text" id="txtNik" class="form-control" th:field="*{nik}" placeholder="Masukkan Nik">
+                    <label style="color:red" th:if="${#fields.hasErrors('nik')}" th:errors="*{nik}"></label>
                     <br/>
-                    <input type="text" id="txtNama" class="form-control" name="nama" placeholder="Masukkan Nama">
+                    <input type="text" id="txtNama" class="form-control" th:field="*{nama}" placeholder="Masukkan Nama">
+                    <label style="color:red" th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}"></label>
                     <br/>
                     <input type="text" id="txtKrit1" class="form-control"
-                           name="kriteria1" placeholder="Nilai Kriteria 1">
+                           th:field="*{kriteria1}" placeholder="Nilai Kriteria 1">
                     <br/>
                     <input type="text" id="txtKrit2" class="form-control"
-                           name="kriteria2" placeholder="Nilai Kriteria 2">
+                           th:field="*{kriteria2}" placeholder="Nilai Kriteria 2">
                     <br/>
                     <input type="text" id="txtKrit3" class="form-control"
-                           name="kriteria3" placeholder="Nilai Kriteria 3">
+                           th:field="*{kriteria3}" placeholder="Nilai Kriteria 3">
                     <br/>
                     <input type="text" id="txtKrit4" class="form-control"
-                           name="kriteria4" placeholder="Nilai Kriteria 4">
+                           th:field="*{kriteria4}" placeholder="Nilai Kriteria 4">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

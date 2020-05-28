@@ -3,6 +3,9 @@ package com.gstudio.saw.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -11,15 +14,18 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "nik")
-@ToString(of = "nama")
+@EqualsAndHashCode(of = {"nik","nama"})
+@ToString(of = {"nik","nama"})
 public class Data {
 
     @Id
     @Column
-    private int nik;
+    @NotNull(message = "NIK harus diisi")
+    private Integer nik;
 
     @Column
+    @NotNull(message = "Nama harus diisi")
+    @NotEmpty(message = "Nama harus diisi")
     private String nama;
 
     @Column

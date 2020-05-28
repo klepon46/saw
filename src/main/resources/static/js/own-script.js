@@ -108,4 +108,9 @@ $(function() {
 
     });
 
+    var status = $('#status').text();
+    if(status.length > 0){
+        $('#modalTambahData').modal();
+    }
+
 });
