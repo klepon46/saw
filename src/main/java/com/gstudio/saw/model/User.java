@@ -1,23 +1,29 @@
 package com.gstudio.saw.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tbl_users")
+@Getter
+@Setter
+@NoArgsConstructor
 public class User {
 
-    private String userName;
-    private String email;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
+    private int id;
 
-    public String getUserName() {
-        return userName;
-    }
+    @Column
+    private String username;
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    @Column
+    private String password;
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    @Column
+    private String role;
 }

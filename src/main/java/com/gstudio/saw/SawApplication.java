@@ -8,7 +8,8 @@ import org.springframework.context.event.EventListener;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
-@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
+//@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
+@SpringBootApplication
 public class SawApplication {
 
 	public static void main(String[] args) {
