@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Bobot</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div th:replace="header :: header"></div>
+<br/>
+
+<div class="container">
+    <div class="card border-success">
+        <div class="card-header text-white bg-success">
+            User Setting
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <a class="btn btn-danger float-right" th:href="@{/logout}">Logout</a>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <form action="#" th:action="@{/profile/save}" th:object="${user}" method="post">
+
+                            <table class="table table-responsive">
+                                <tbody>
+                                <tr>
+                                    <td rowspan="3">
+                                        <img th:src="@{/img/user.png}" width="200px">
+                                    </td>
+                                    <td>
+                                        <input type="text" th:field="*{username}" class="form-control"
+                                               placeholder="username">
+                                        <label style="color:red" th:if="${#fields.hasErrors('username')}"
+                                               th:errors="*{username}"></label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="password" th:field="*{password}" class="form-control"
+                                               placeholder="password">
+                                        <label style="color:red" th:if="${#fields.hasErrors('password')}"
+                                               th:errors="*{password}"></label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select th:field="*{role}" class="form-control">
+                                            <option value="user">User</option>
+                                            <option value="admin">Admin</option>
+                                        </select>
+                                    </td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="text-center">
+                                <input type="submit" style="width: 120px" class="btn btn-success" value="Save">
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>
