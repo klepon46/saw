@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
@@ -24,7 +24,7 @@
             <li class="nav-item active">
                 <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item active" sec:authorize="hasRole('ADMIN')">
                 <a class="nav-link" th:href="@{/bobot/menu}">Nilai Bobot</a>
             </li>
             <li class="nav-item active">
@@ -36,7 +36,7 @@
             <li class="nav-item active">
                 <a class="nav-link" th:href="@{/periode/index}">Periode</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item active" sec:authorize="hasRole('ADMIN')">
                 <a class="nav-link" th:href="@{/profile/index}">Profile</a>
             </li>
         </ul>

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @NoArgsConstructor
@@ -16,7 +17,12 @@ public class UserDto implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Auth auth = new Auth(user.getRole().toUpperCase());
+
+        Collection<Auth> auths = new ArrayList<>();
+        auths.add(auth);
+
+        return auths;
     }
 
     @Override
