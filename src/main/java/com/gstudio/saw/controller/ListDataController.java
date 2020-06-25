@@ -26,18 +26,18 @@ public class ListDataController {
 
     @GetMapping("/menu")
     public String menu(Data data) {
-        return "/ListData/main";
+        return "ListData/main";
     }
 
     @PostMapping("/addData")
     public String addData(@Valid Data data, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("status","error");
-            return "/ListData/main";
+            return "ListData/main";
         }
 
         dataRepository.save(data);
-        return "redirect:/list-data/menu";
+        return "redirect:menu";
     }
 
 }

@@ -13,8 +13,9 @@ $(function() {
         type: 'GET',
         success: function (data) {
             $("#grid-basic").bootgrid('append', data);
+            window.print();
         }
     });
 
-    window.print();
+
 });

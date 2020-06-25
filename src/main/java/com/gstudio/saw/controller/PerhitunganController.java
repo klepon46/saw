@@ -28,7 +28,7 @@ public class PerhitunganController {
 
     @RequestMapping("/menu")
     public String menu() {
-        return "/perhitungan/menu";
+        return "perhitungan/menu";
     }
 
     @RequestMapping(value = "/hitung", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

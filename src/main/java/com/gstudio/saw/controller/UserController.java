@@ -22,13 +22,13 @@ public class UserController {
 
     @GetMapping("/index")
     public String index(User user) {
-        return "/profile/index";
+        return "profile/index";
     }
 
     @PostMapping("/save")
     public String save(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
-            return "/profile/index";
+            return "profile/index";
         }
         try {
             String encrypted = new BCryptPasswordEncoder().encode(user.getPassword());
@@ -36,10 +36,10 @@ public class UserController {
             userRepository.save(user);
         } catch (DataIntegrityViolationException e) {
             result.rejectValue("username", "username.exists", "Username sudah ada");
-            return "/profile/index";
+            return "profile/index";
         }
 
-        return "redirect:/profile/index";
+        return "redirect:index";
     }
 
 

@@ -74,7 +74,7 @@ public class ListDataRestController {
         return new ResponseEntity<>(lists, HttpStatus.OK);
     }
 
-    @PostMapping("/deleteData")
+    @GetMapping("/deleteData")
     public ResponseEntity<Integer> deleteData(int nik){
         dataRepository.deleteById(nik);
         return new ResponseEntity<>(nik, HttpStatus.OK);

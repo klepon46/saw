@@ -51,12 +51,11 @@ $(function() {
                       });
                   }).end().find(".command-view").on("click", function (e) {
                       var val = $(this).data("row-id");
-                      var url = '/ListData/deleteData';
+                      var url = '/ListData/deleteData?nik='+val;
 
                       $.ajax({
                             url: url,
-                            type: 'POST',
-                            data: { "nik": val },
+                            type: 'GET',
                             success: function (data) {
                                 alert('Data berhasil dihapus');
                                 location.reload();

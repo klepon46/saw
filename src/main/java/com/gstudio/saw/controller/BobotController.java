@@ -27,21 +27,21 @@ public class BobotController {
     public String menu(Model model) {
         Optional<Bobot> bobot = bobotRepository.findById(1);
         model.addAttribute("bobot", bobot.get());
-        return "/bobot/main";
+        return "bobot/main";
     }
 
     @PostMapping("/save")
     public String saveBobot(Bobot bobot) {
         bobot.setId(1);
         bobotRepository.save(bobot);
-        return "redirect:/bobot/menu";
+        return "redirect:menu";
     }
 
     @PostMapping("/saveKriteria")
     public String saveKriteria(Kriteria kriteria) {
         kriteria.setId(1);
         kriteriaRepository.save(kriteria);
-        return "redirect:/bobot/menu";
+        return "redirect:menu";
     }
 
     @RequestMapping(value = "/getKriteria", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)

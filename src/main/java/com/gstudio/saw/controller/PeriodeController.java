@@ -12,13 +12,13 @@ public class PeriodeController {
 
     @GetMapping("/index")
     public String index(){
-        return "/periode/periode-index";
+        return "periode/periode-index";
     }
 
     @GetMapping("/report")
     public String report(@RequestParam("kuartal") int kuartal, @RequestParam("year")int year){
 
-        return "/periode/report";
+        return "periode/report";
     }
 
 }
