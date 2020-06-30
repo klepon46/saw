@@ -8,13 +8,34 @@
     <title>Saw</title>
 
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <style>
+
+        #headerWrap{
+            min-height : 500px;
+        }
+
+
+    </style>
 </head>
-<body>
+<body class="bg-success">
 <div th:replace="header :: header"></div>
-<br/>
-<div class="container">
-    <h1>Aplikasi SAW (BETA)</h1>
+<!--<br/>-->
+<div id="headerWrap" class="bg-success">
+    <div class="container">
+        <div class="row " style="padding-top: 75px">
+            <div class="col-md-6">
+                <h1 style="color : #ffffff">Selamat Datang di Aplikasi Penilaian Driver PT. Adaro Indonesia</h1>
+            </div>
+
+            <div class="col-md-6">
+                <img th:src="@{img/bis.png}" style="width:80%">
+            </div>
+        </div>
+
+
+    </div>
 </div>
+
 
 <script th:src="@{/js/jquery.min.js}"></script>
 <script th:src="@{/js/popper.min.js}"></script>
